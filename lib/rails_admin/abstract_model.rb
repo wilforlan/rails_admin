@@ -111,6 +111,7 @@ module RailsAdmin
     end
 
     def parse_field_value(field, value)
+      return value if value.is_a?(String)
       value.is_a?(Array) ? value.map { |v| field.parse_value(v) } : field.parse_value(value)
     end
 
